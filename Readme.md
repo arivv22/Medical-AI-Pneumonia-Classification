@@ -24,6 +24,7 @@ It was designed to be finished in under **4 hours**, easily understandable for l
 Dataset used:
 > **Chest X-Ray Images (Pneumonia)** – [Kaggle Dataset](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
 
+```bash
 Structure:
 dataset/
 │
@@ -34,7 +35,7 @@ dataset/
 └── test/
 ├── NORMAL/
 └── PNEUMONIA/
-
+```
 
 ---
 
@@ -61,7 +62,7 @@ Loss: CrossEntropyLoss
 
 Optimizer: Adam
 
-```python
+```bash
 from torchvision import models
 import torch.nn as nn
 
@@ -81,7 +82,7 @@ model.fc = nn.Linear(model.fc.in_features, 2)
 
 Train for 5–10 epochs.
 
-```python
+```bash
 # Example training snippet
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.fc.parameters(), lr=0.001)

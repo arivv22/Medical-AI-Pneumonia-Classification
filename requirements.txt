@@ -1,0 +1,28 @@
+# Core libraries
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+
+# Deep Learning frameworks
+torch
+torchvision
+torchaudio
+tensorflow
+keras
+
+# Experiment tracking & utils
+tqdm
+wandb
+
+# Data processing
+opencv-python
+Pillow
+
+# NLP (kalau perlu)
+transformers
+datasets
+
+# Visualization
+plotly
