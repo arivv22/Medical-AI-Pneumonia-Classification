@@ -63,17 +63,18 @@ Loss: CrossEntropyLoss
 Optimizer: Adam
 
 ```bash
-from torchvision import models
-import torch.nn as nn
+from torchvision.models import resnet18, ResNet18_Weights
 
-model = models.resnet18(pretrained=True)
+weights = ResNet18_Weights.DEFAULT
+model = resnet18(weights=weights)
 
 # Freeze pretrained layers
 for param in model.parameters():
     param.requires_grad = False
 
-# Replace last FC layer
-model.fc = nn.Linear(model.fc.in_features, 2)
+# Replace final layer (2 classes)
+num_features = model.fc.in_features
+model.fc = nn.Linear(num_features, 2)
 ```
 
 ---
@@ -85,13 +86,13 @@ Train for 5–10 epochs.
 ```bash
 # Example training snippet
 criterion = nn.CrossEntropyLoss()
-optimizer = torch.optim.Adam(model.fc.parameters(), lr=0.001)
+optimizer = optim.Adam(model.fc.parameters(), lr=0.001)
 ```
 Example result (after few epochs):
-Accuracy: 0.89
-Precision: 0.88
-Recall: 0.91
-F1-score: 0.89
+Accuracy: 0.79
+Precision: 0.86
+Recall: 0.73
+F1-score: 0.79
 
 --- 
 
@@ -110,6 +111,7 @@ ResNet18 (Transfer Learning)	89%	PyTorch	Chest X-Ray Pneumonia
 
 ## 📁 File Structure
 
+```bash
 medical-ai-image-classification/
 │
 ├── Medical_AI_Image_Classification.ipynb   # Main notebook
@@ -118,6 +120,7 @@ medical-ai-image-classification/
 └── docs/
     ├── confusion_matrix.png
     └── sample_predictions.png
+```
 
 ---
 
