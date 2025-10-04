@@ -1,4 +1,4 @@
 # Ignore VSCode settings folder
 .vscode/
-.kaggle.json
+kaggle.json
 .venv/
